@@ -112,7 +112,7 @@ const BikeForm = () => {
       phone,
       email,
       bikes: selectedBikes,
-      state: 'new'
+      status: 'new'
     }
 
     dispatch(makeReservation(newReservation))
@@ -155,14 +155,14 @@ const BikeForm = () => {
         <Input
           type="text"
           name="phone"
-          lableText="puhelinnumero"
+          lableText="puhelin"
           value={phone}
           setValue={setPhone}
         />
         <Input
           type="text"
           name="email"
-          lableText="sähköposti"
+          lableText="email"
           value={email}
           setValue={setEmail}
         />

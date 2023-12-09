@@ -5,7 +5,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
-    'plugin:react-hooks/recommended',
+    'plugin:react-hooks/recommended'
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs', 'node_modules'],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
@@ -14,30 +14,23 @@ module.exports = {
   rules: {
     'react-refresh/only-export-components': [
       'warn',
-      { allowConstantExport: true },
+      { allowConstantExport: true }
     ],
-    "indent": [
-      "error",
-      2  
+    indent: [
+      'error',
+      2,
+      {
+        SwitchCase: 1
+      }
     ],
-    "quotes": [
-        "error",
-        "single"
-    ],
-    "semi": [
-        "error",
-        "never"
-    ],
-    "eqeqeq": "error",
-    "no-trailing-spaces": "error",
-    "object-curly-spacing": [
-        "error", "always"
-    ],
-    "arrow-spacing": [
-        "error", { "before": true, "after": true }
-    ],
-    "no-console": 0,
-    "react/react-in-jsx-scope": "off",
-    "react/prop-types": 0,
+    quotes: ['error', 'single'],
+    semi: ['error', 'never'],
+    eqeqeq: 'error',
+    'no-trailing-spaces': 'error',
+    'object-curly-spacing': ['error', 'always'],
+    'arrow-spacing': ['error', { before: true, after: true }],
+    'no-console': 0,
+    'react/react-in-jsx-scope': 'off',
+    'react/prop-types': 0
   }
 }

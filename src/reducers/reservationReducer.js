@@ -10,11 +10,16 @@ const reservationSlice = createSlice({
     },
     addReservation(state, action) {
       return state.concat(action.payload)
+    },
+    updateReservation(state, action) {
+      const res = action.payload
+      return state.map(r => (r.id !== res.id ? r : res))
     }
   }
 })
 
-export const { setReservations, addReservation } = reservationSlice.actions
+export const { setReservations, addReservation, updateReservation } =
+  reservationSlice.actions
 
 export const initialReservations = () => {
   return async dispatch => {
@@ -27,6 +32,16 @@ export const makeReservation = res => {
   return async dispatch => {
     const newReservations = await reservationService.create(res)
     dispatch(addReservation(newReservations))
+  }
+}
+
+export const changeReservationStatus = (res, newStatus) => {
+  return async dispatch => {
+    const newReservation = await reservationService.update({
+      ...res,
+      status: newStatus
+    })
+    dispatch(updateReservation(newReservation))
   }
 }
 

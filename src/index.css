@@ -15,10 +15,26 @@ th {
   padding: 5px 10px;
 }
 
+th {
+  background-color: #fbbc04;
+}
+
 .bike-free {
   background-color: green;
 }
 
 .bike-reserved {
   background-color: red;
+}
+
+.status-new {
+  background-color: lightblue;
+}
+
+.status-rejected {
+  background-color: red;
+}
+
+.status-confirmed {
+  background-color: green;
 }

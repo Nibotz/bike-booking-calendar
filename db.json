@@ -55,7 +55,7 @@
       "name": "Niilo Mikkola",
       "phone": "0456446292",
       "email": "niilosmikkola@gmail.com",
-      "status": "new"
+      "status": "confirmed"
     },
     {
       "id": 2,
@@ -74,7 +74,7 @@
       "name": "Markus M",
       "phone": "34289348",
       "email": "markus.mustonen@tmkmachinery.com",
-      "status": "new"
+      "status": "confirmed"
     },
     {
       "date": "2023-12-09T08:23:02.782Z",
@@ -91,7 +91,7 @@
         true,
         true
       ],
-      "state": "new",
+      "status": "rejected",
       "id": 3
     },
     {
@@ -109,7 +109,7 @@
         false,
         false
       ],
-      "state": "new",
+      "status": "confirmed",
       "id": 4
     },
     {
@@ -127,8 +127,26 @@
         false,
         false
       ],
-      "state": "new",
+      "status": "rejected",
       "id": 5
+    },
+    {
+      "date": "2023-12-09T11:03:23.040Z",
+      "start": "2023-12-18",
+      "end": "2023-12-22",
+      "name": "Niilo Mikkola",
+      "phone": "0456446292",
+      "email": "niilosmikkola@gmail.com",
+      "bikes": [
+        false,
+        false,
+        true,
+        false,
+        true,
+        false
+      ],
+      "status": "new",
+      "id": 6
     }
   ]
 }
