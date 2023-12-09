@@ -1,0 +1,134 @@
+{
+  "bikes": [
+    {
+      "id": 0,
+      "size": "S",
+      "color": "black",
+      "model": "Spectral CF 8"
+    },
+    {
+      "id": 1,
+      "size": "M",
+      "color": "yellow",
+      "model": "Spectral CF 9"
+    },
+    {
+      "id": 2,
+      "size": "L",
+      "color": "red",
+      "model": "Neuron"
+    },
+    {
+      "id": 3,
+      "size": "L",
+      "color": "black",
+      "model": "Spectral CF 8"
+    },
+    {
+      "id": 4,
+      "size": "M",
+      "color": "white",
+      "model": "Neuron"
+    },
+    {
+      "id": 5,
+      "size": "L",
+      "color": "black",
+      "model": "Spectral CF 8"
+    }
+  ],
+  "reservations": [
+    {
+      "id": 1,
+      "date": "2023-12-08T15:20:37.992Z",
+      "start": "2023-12-07",
+      "end": "2023-12-15",
+      "bikes": [
+        false,
+        false,
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "name": "Niilo Mikkola",
+      "phone": "0456446292",
+      "email": "niilosmikkola@gmail.com",
+      "status": "new"
+    },
+    {
+      "id": 2,
+      "date": "2023-12-08T15:20:48.729Z",
+      "start": "2023-12-07",
+      "end": "2023-12-09",
+      "bikes": [
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "name": "Markus M",
+      "phone": "34289348",
+      "email": "markus.mustonen@tmkmachinery.com",
+      "status": "new"
+    },
+    {
+      "date": "2023-12-09T08:23:02.782Z",
+      "start": "2023-12-08",
+      "end": "2023-12-10",
+      "name": "Niilo Mikkola",
+      "phone": "0456446292",
+      "email": "niilosmikkola@gmail.com",
+      "bikes": [
+        false,
+        false,
+        false,
+        false,
+        true,
+        true
+      ],
+      "state": "new",
+      "id": 3
+    },
+    {
+      "date": "2023-12-09T08:30:24.554Z",
+      "start": "2023-12-08",
+      "end": "2023-12-10",
+      "name": "Niilo Mikkola",
+      "phone": "0456446292",
+      "email": "niilosmikkola@gmail.com",
+      "bikes": [
+        false,
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "state": "new",
+      "id": 4
+    },
+    {
+      "date": "2023-12-09T08:34:56.760Z",
+      "start": "2023-12-13",
+      "end": "2023-12-14",
+      "name": "Niilo Mikkola",
+      "phone": "0456446292",
+      "email": "niilosmikkola@gmail.com",
+      "bikes": [
+        true,
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "state": "new",
+      "id": 5
+    }
+  ]
+}
