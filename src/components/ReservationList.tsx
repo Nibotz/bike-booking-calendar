@@ -1,32 +1,34 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { changeReservationStatus } from '../reducers/reservationReducer'
+import { Action, ThunkDispatch } from '@reduxjs/toolkit'
+import { Reservation, Status, StoreType } from '../types'
 
 // helper functions
-const dateReverse = d => d.split('-').reverse().join('.')
+const dateReverse = (d: string) => d.split('-').reverse().join('.')
 
-const statusText = text => {
+const statusToText = (text: Status): string => {
   switch (text) {
-    case 'new':
+    case Status.new:
       return 'uusi'
-    case 'confirmed':
+    case Status.confirmed:
       return 'hyväksytty'
-    case 'rejected':
+    case Status.rejected:
       return 'hylätty'
     default:
       return text
   }
 }
 
-const Reservation = ({ res }) => {
-  const dispatch = useDispatch()
+const ReservationEntry = ({ res }: { res: Reservation }) => {
+  const dispatch: ThunkDispatch<undefined, void, Action> = useDispatch()
 
   const bikeSelection = res.bikes
     .map((b, i) => (b ? i + 1 : 0))
     .filter(b => b)
     .join(', ')
 
-  const confirm = () => dispatch(changeReservationStatus(res, 'confirmed'))
-  const reject = () => dispatch(changeReservationStatus(res, 'rejected'))
+  const confirm = () => dispatch(changeReservationStatus(res, Status.confirmed))
+  const reject = () => dispatch(changeReservationStatus(res, Status.rejected))
 
   return (
     <tr>
@@ -38,16 +40,18 @@ const Reservation = ({ res }) => {
       <td>{res.phone}</td>
       <td>{res.email}</td>
       <td className={'status-' + res.status}>
-        {statusText(res.status)}
-        {res.status === 'new' && <button onClick={confirm}>hyväksy</button>}
-        {res.status === 'new' && <button onClick={reject}>hylkää</button>}
+        {statusToText(res.status)}
+        {res.status === Status.new && <>
+          <button onClick={confirm}>hyväksy</button>
+          <button onClick={reject}>hylkää</button>
+        </>}
       </td>
     </tr>
   )
 }
 
 const ReservationList = () => {
-  const reservations = useSelector(state => state.reservations)
+  const reservations = useSelector<StoreType, Reservation[]>(state => state.reservations)
 
   return (
     <div>
@@ -66,7 +70,7 @@ const ReservationList = () => {
         </thead>
         <tbody>
           {reservations.map(r => (
-            <Reservation key={r.id} res={r} />
+            <ReservationEntry key={r.id} res={r} />
           ))}
         </tbody>
       </table>

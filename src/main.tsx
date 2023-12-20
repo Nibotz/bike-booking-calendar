@@ -1,7 +1,7 @@
+import { render } from 'preact'
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+import App from './app.tsx'
 import './index.css'
 
 import bikeReducer from './reducers/bikeReducer.js'
@@ -14,8 +14,9 @@ const store = configureStore({
   }
 })
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+render(
   <Provider store={store}>
     <App />
-  </Provider>
+  </Provider>,
+  document.getElementById('app')!
 )

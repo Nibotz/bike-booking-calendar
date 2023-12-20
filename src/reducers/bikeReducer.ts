@@ -1,14 +1,15 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction, Dispatch } from '@reduxjs/toolkit'
+import { Bike } from '../types'
 import bikeService from '../services/bikes'
 
 const BikeSlice = createSlice({
   name: 'bikes',
-  initialState: [],
+  initialState: [] as Bike[],
   reducers: {
-    setBikes(state, action) {
+    setBikes(_state, action: PayloadAction<Bike[]>) {
       return action.payload
     },
-    toggleBikeCheck(state, action) {
+    toggleBikeCheck(state, action: PayloadAction<Bike>) {
       const bike = action.payload
       state[bike.id].checked = !bike.checked
     },
@@ -23,12 +24,13 @@ const BikeSlice = createSlice({
 export const { setBikes, toggleBikeCheck, clearBikeChecks } = BikeSlice.actions
 
 export const initialBikes = () => {
-  return async dispatch => {
+  return async (dispatch: Dispatch) => {
     const bikes = await bikeService.getAll()
-    bikes.forEach(bike => {
-      bike.checked = false
-    })
-    dispatch(setBikes(bikes))
+    const bikeStates: Bike[] = bikes.map(bike => ({
+      ...bike,
+      checked: false
+    }))
+    dispatch(setBikes(bikeStates))
   }
 }
 

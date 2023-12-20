@@ -1,4 +1,5 @@
-import { useEffect } from 'react'
+import { useEffect } from 'preact/hooks'
+import { Action, ThunkDispatch } from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux'
 import BikeForm from './components/BikeForm'
 import ReservationList from './components/ReservationList'
@@ -6,7 +7,7 @@ import { initialBikes } from './reducers/bikeReducer'
 import { initialReservations } from './reducers/reservationReducer'
 
 const App = () => {
-  const dispatch = useDispatch()
+  const dispatch: ThunkDispatch<undefined, void, Action> = useDispatch()
 
   useEffect(() => {
     dispatch(initialBikes())
