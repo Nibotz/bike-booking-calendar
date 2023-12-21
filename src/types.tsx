@@ -8,10 +8,12 @@ export interface Bike {
 
 export type BikeData = Omit<Bike, 'checked'>
 
-export enum Status {
+export enum ResStatus {
   new = 'new',
   confirmed = 'confirmed',
-  rejected = 'rejected'
+  rejected = 'rejected',
+  retrieved = 'retrieved',
+  returned = 'returned'
 }
 
 export interface Reservation {
@@ -23,7 +25,7 @@ export interface Reservation {
   name: string
   phone: string
   email: string
-  status: Status
+  status: ResStatus
 }
 
 export type NewReservation = Omit<Reservation, 'id'>

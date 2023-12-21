@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction, Dispatch } from '@reduxjs/toolkit'
-import { Reservation, NewReservation, Status } from '../types'
+import { Reservation, NewReservation, ResStatus } from '../types'
 import reservationService from '../services/reservations'
 
 const reservationSlice = createSlice({
@@ -36,7 +36,7 @@ export const makeReservation = (res: NewReservation) => {
   }
 }
 
-export const changeReservationStatus = (res: Reservation, newStatus: Status) => {
+export const changeReservationStatus = (res: Reservation, newStatus: ResStatus) => {
   return async (dispatch: Dispatch) => {
     const newReservation = await reservationService.update({
       ...res,

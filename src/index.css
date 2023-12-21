@@ -26,15 +26,3 @@ th {
 .bike-reserved {
   background-color: red;
 }
-
-.status-new {
-  background-color: lightblue;
-}
-
-.status-rejected {
-  background-color: red;
-}
-
-.status-confirmed {
-  background-color: green;
-}
