@@ -1,0 +1,24 @@
+table {
+  border-spacing: 0;
+  border: 1px solid black;
+  margin: 10px 0;
+}
+
+td,
+th {
+  border: 1px solid black;
+  text-align: center;
+  padding: 5px 10px;
+}
+
+th {
+  background-color: #fbbc04;
+}
+
+.bike-free {
+  background-color: green;
+}
+
+.bike-reserved {
+  background-color: red;
+}

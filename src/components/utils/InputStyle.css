@@ -1,0 +1,28 @@
+
+.bike-input-element {
+  margin: 5px 10px;
+}
+
+/*
+.bike-input-label {
+}
+
+.bike-input {
+}
+*/
+
+.bike-input input {
+  width: 12em;
+  padding: 1px;
+  border-style: solid;
+}
+
+.bike-input-invalid input {
+  border-color: red;
+}
+
+.bike-input-error {
+  font-style: italic;
+  color: red;
+  float: right;
+}

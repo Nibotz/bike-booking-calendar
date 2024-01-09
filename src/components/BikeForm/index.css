@@ -1,0 +1,23 @@
+
+/*
+.bike-reservation-form {
+  
+}
+*/
+
+.bike-message {
+  width: 20em;
+  border: 2px solid black;
+  border-radius: 4px;
+  background-color: green;
+  padding: 4px;
+}
+
+.bike-message button {
+  float: right;
+}
+
+
+.bike-input-group {
+  display: flex;
+}

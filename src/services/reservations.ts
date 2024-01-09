@@ -9,12 +9,11 @@ const getAll = async () => {
 
 const create = async (reservation: NewReservation) => {
   const response = await axios.post<Reservation>(baseUrl, reservation)
-  return response.data
+  return response.data.id
 }
 
 const update = async (reservation: Reservation) => {
-  const response = await axios.put<Reservation>(`${baseUrl}/${reservation.id}`, reservation)
-  return response.data
+  await axios.put<Reservation>(`${baseUrl}/${reservation.id}`, reservation)
 }
 
 export default { getAll, create, update }

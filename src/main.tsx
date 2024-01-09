@@ -4,13 +4,11 @@ import { Provider } from 'react-redux'
 import App from './app.tsx'
 import './index.css'
 
-import bikeReducer from './reducers/bikeReducer.js'
-import reservationReducer from './reducers/reservationReducer.js'
+import bikeAppReducer from './reducers/bikeAppState.ts'
 
 const store = configureStore({
   reducer: {
-    bikes: bikeReducer,
-    reservations: reservationReducer
+    bikeApp: bikeAppReducer,
   }
 })
 

@@ -2,27 +2,11 @@ body {
   background-color: lightgray;
 }
 
-table {
-  border-spacing: 0;
-  border: 1px solid black;
-  margin-bottom: 10px;
+.bike-root {
+  font-family: acumin-pro-condensed;
+  font-weight: bold;
 }
 
-td,
-th {
-  border: 1px solid black;
-  text-align: center;
-  padding: 5px 10px;
-}
-
-th {
-  background-color: #fbbc04;
-}
-
-.bike-free {
-  background-color: green;
-}
-
-.bike-reserved {
-  background-color: red;
+.bike-highlight {
+  color: blue;
 }

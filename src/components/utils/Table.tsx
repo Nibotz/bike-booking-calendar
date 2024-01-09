@@ -1,3 +1,4 @@
+import './TableStyle.css'
 import { ComponentChildren } from "preact"
 
 export const Table = (

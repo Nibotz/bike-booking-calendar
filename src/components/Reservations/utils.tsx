@@ -2,20 +2,17 @@ import { ResStatus } from "../../types"
 
 export const dateFormat = (d: string) => d.split('-').reverse().join('.')
 
-export const BikeList = (bikes: boolean[]) => 
-  bikes.map((b, i) => (b ? i + 1 : 0)).filter(b => b).join(', ')
-
 export const statusToText = (text: ResStatus): string => {
   switch (text) {
-    case ResStatus.new:
+    case 'new':
       return 'uusi'
-    case ResStatus.confirmed:
+    case 'confirmed':
       return 'hyväksytty'
-    case ResStatus.rejected:
+    case 'rejected':
       return 'hylätty'
-    case ResStatus.retrieved:
+    case 'retrieved':
       return 'haettu'
-    case ResStatus.returned:
+    case 'returned':
       return 'palautettu'
     default:
       return 'error'
@@ -24,15 +21,15 @@ export const statusToText = (text: ResStatus): string => {
 
 export const statusToColor = (text: ResStatus): string => {
   switch (text) {
-    case ResStatus.new:
+    case 'new':
       return '#add8e6'
-    case ResStatus.confirmed:
+    case 'confirmed':
       return '#00bb00'
-    case ResStatus.rejected:
+    case 'rejected':
       return '#ff0000'
-    case ResStatus.retrieved:
-      return '#0000aa'
-    case ResStatus.returned:
+    case 'retrieved':
+      return '#00ff00'
+    case 'returned':
       return '#999999'
     default:
       return '#000000'

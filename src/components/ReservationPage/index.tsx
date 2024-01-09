@@ -1,15 +1,15 @@
 import { useSelector } from 'react-redux'
-import { route } from 'preact-router'
 //import { Action, ThunkDispatch } from '@reduxjs/toolkit'
 //import { changeReservationStatus } from '../../reducers/reservationReducer'
 import { dateFormat, statusToColor, statusToText } from '../Reservations/utils'
-import { Bike, Reservation, StoreType } from '../../types'
+import { Bike, BikeState, StoreType } from '../../types'
 import { Table } from '../utils/Table'
+import './index.css'
 
 const BikeInfo = ({ bike }: { bike: Bike }) => {
   return (
     <tr>
-      <td>{bike.id + 1}</td>
+      <td>{bike.id}</td>
       <td>{bike.size}</td>
       <td>{bike.color}</td>
       <td>{bike.model}</td>
@@ -18,44 +18,34 @@ const BikeInfo = ({ bike }: { bike: Bike }) => {
 }
 
 const ReservationPage = ({ id }: { id: string }) => {
-  const reservations = useSelector<StoreType,Reservation[]>(store => store.reservations)
-  const bikes = useSelector<StoreType,Bike[]>(store => store.bikes)
+  const { bikes, reservations } = useSelector<StoreType,BikeState>(store => store.bikeApp)
 
   const res = reservations.find(r => r.id === Number(id))
 
   if (res === undefined) {
     if (reservations.length) {
-      route('/404')
+      return <div>reservation not found!</div>
     }
     return null
   }
 
-  // will use actual css files in the future...
-  const statusStyle = {
-    background: statusToColor(res.status),
-    textAlign: 'center',
-    width: '10rem',
-    border: '2px solid black',
-    fontSize: '1.5rem'
-  }
-
   return (
     <div>
-      <div style={statusStyle}>{statusToText(res.status)}</div>
+      <div class='bike-res-status' style={{ background: statusToColor(res.status) }}>{statusToText(res.status)}</div>
       <h2>varauksen tiedot</h2>
-      <div><strong>varauksen tekopäivä: </strong>{dateFormat(res.date.split('T')[0])}</div>
-      <div><strong>hakupäivä: </strong>{dateFormat(res.start)}</div>
-      <div><strong>palautuspäivä: </strong>{dateFormat(res.end)}</div>
+      <div><span class='bike-highlight'>varauksen tekopäivä:</span> {dateFormat(res.date.split('T')[0])}</div>
+      <div><span class='bike-highlight'>hakupäivä:</span> {dateFormat(res.start)}</div>
+      <div><span class='bike-highlight'>palautuspäivä:</span> {dateFormat(res.end)}</div>
 
       <h2>varaajan tiedot</h2>
-      <div><strong>nimi: </strong>{res.name}</div>
-      <div><strong>puhelin: </strong>{res.phone}</div>
-      <div><strong>email: </strong>{res.email}</div>
+      <div><span class='bike-highlight'>nimi:</span> {res.name}</div>
+      <div><span class='bike-highlight'>puhelin:</span> {res.phone}</div>
+      <div><span class='bike-highlight'>email:</span> {res.email}</div>
 
       <h2>varatut pyörät</h2>
       <Table columns={['pyörä', 'koko', 'väri', 'malli']}>
         {bikes
-          .filter(b => res.bikes[b.id-1])
+          .filter(b => res.bikes.includes(b.id))
           .map(b => <BikeInfo key={b.id} bike={b} />)
         }
       </Table>

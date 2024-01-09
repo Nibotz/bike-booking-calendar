@@ -3,25 +3,16 @@ export interface Bike {
   size: string
   color: string
   model: string
-  checked: boolean
 }
 
-export type BikeData = Omit<Bike, 'checked'>
-
-export enum ResStatus {
-  new = 'new',
-  confirmed = 'confirmed',
-  rejected = 'rejected',
-  retrieved = 'retrieved',
-  returned = 'returned'
-}
+export type ResStatus = 'new' | 'confirmed' | 'rejected' | 'retrieved' | 'returned'
 
 export interface Reservation {
   id: number
   date: string
   start: string
   end: string
-  bikes: boolean[]
+  bikes: number[]
   name: string
   phone: string
   email: string
@@ -30,7 +21,19 @@ export interface Reservation {
 
 export type NewReservation = Omit<Reservation, 'id'>
 
+export interface BikeState {
+  bikes: Bike[],
+  reservations: Reservation[],
+}
+
 export interface StoreType {
-  bikes: Bike[]
-  reservations: Reservation[]
+  bikeApp: BikeState
+}
+
+export interface BikeFormData {
+  name: string
+  phone: string
+  email: string
+  start: string
+  end: string
 }
